@@ -152,7 +152,7 @@ def BinaryTreeSort(li):
 	#flatten the tree
 	return root.flatten()
 	
-	
+# Merge Sort
 def MergeSort(li):
 	import heapq
 	if len(li) <= 1:
@@ -164,6 +164,46 @@ def MergeSort(li):
 	right = MergeSort(right)
 	return list(heapq.merge(left, right))
 		
+# Gnome Sort		
+def GnomeSort(li):
+	i = 1
+	while i < len(li):
+		if li[i] >= li[i-1]:
+			i += 1
+		else:
+			tmp = li[i]
+			li[i] = li[i-1]
+			li[i-1] = tmp
+			if i > 1:
+				i -= 1	
+	return li
+
+# Cocktail Sort
+def CocktailSort(li):
+	begin = -1
+	end = len(li) - 1
+	swapped = True
+	while swapped:
+		swapped = False
+		begin += 1
+		for i in xrange(begin, end):
+			if li[i] > li[i+1]:
+				tmp = li[i]
+				li[i] = li[i+1]
+				li[i+1] = tmp
+				swapped = True
+		if not swapped:
+			break
+		swapped = False
+		end -= 1
+		for i in xrange(end, begin, -1):
+			if li[i] > li[i+1]:
+				tmp = li[i]
+				li[i] = li[i+1]
+				li[i+1] = tmp
+				swapped = True
+	return li
+
 # Concatenate two sorted lists
 # used for Quick Sort
 def _concatList(l1, a, l2):
