@@ -6,10 +6,6 @@ class InvalidArgument(RuntimeError):
 	def getMsg(self):
 		return self.msg
 
-# == Order Constants ==
-ASC = 0 # ascending
-DSC = 1 # descending 
-
 # Insertion Sort
 def InsertionSort(li):
 	if not isinstance(li, list):
