@@ -151,9 +151,21 @@ def BinaryTreeSort(li):
 		
 	#flatten the tree
 	return root.flatten()
+	
+	
+def MergeSort(li):
+	import heapq
+	if len(li) <= 1:
+		return li
+	mid = len(li) / 2
+	left = li[0:mid]
+	right = li[mid:]
+	left = MergeSort(left)
+	right = MergeSort(right)
+	return list(heapq.merge(left, right))
 		
 # Concatenate two sorted lists
-# used for Binary Search Tree and Quick Sort
+# used for Quick Sort
 def _concatList(l1, a, l2):
 	# create a new list
 	li = []
