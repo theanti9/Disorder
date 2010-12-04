@@ -97,46 +97,89 @@ class Node:
 		self.right = None
 		self.data = data
 		
+	# add data to the tree
 	def insert(self, data):
+		# return false if the data is a duplicate
 		if data == self.data:
 			return false
+			
+		# if data is less than the current node go left
 		elif data < self.data:
+			# if no data here, make a new node
 			if self.left == None:
 				self.left = Node(data)
+				
+			# else try the same on its left child
 			else:
 				self.left.insert(data)
+				
+		# if its greater, go right
 		else:
+			# if no data here, make a new node
 			if self.right == None:
 				self.right = Node(data)
+				
+			# else try the same on its right child
 			else:
 				self.right.insert(data) 
+				
+	# flatten a node into a list
 	def flatten(self):
+		# if no children, return this nodes data as a list
 		if self.left == None and self.right == None:
 			return [self.data]
-		return _concatList(self.left.flatten() if self.left is not None else None, self.data, self.right.flatten() if self.right is not None else None)
+		# create empty list
+		li = []
+		
+		# append the first list
+		if self.left is not None:
+			li.extend(self.left.flatten())
+			
+		# append data
+		li.append(self.data)
+		
+		# append the second list
+		if self.right is not None:
+			li.extend(self.right.flatten())
+			
+		return li
 		
 # Binary Tree Sort
 def BinaryTreeSort(li):
+	# create the root node with the first element
 	root = Node(li[0])
+	
+	# add each element to the tree
 	for i in xrange(1, len(li)):
 		root.insert(li[i])
+		
+	#flatten the tree
 	return root.flatten()
 		
-
+# Concatenate two sorted lists
+# used for Binary Search Tree and Quick Sort
 def _concatList(l1, a, l2):
+	# create a new list
 	li = []
 	if l1 is not None:
+		# append each of the elements from l1
 		for l in l1:
 			li.append(l)
 	else:
 		pass
+		
 	if a is not None:
+		# append the middle if there is one
 		li.append(a)
 	else:
 		pass
+		
+		
 	if l2 is not None:
+		# append each of the elements from l2
 		for l in l2:
 			li.append(l)
 	else:
 		pass
+		
 	return li
