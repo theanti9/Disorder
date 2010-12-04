@@ -19,7 +19,7 @@ def InsertionSort(li):
 	return li
 	
 # Bubble Sort
-def BubbleSort(l):
+def BubbleSort(li):
 	if not isinstance(li, list):
 		raise InvalidArgument()
 	ordered = False
@@ -97,7 +97,7 @@ class Node:
 	def insert(self, data):
 		# return false if the data is a duplicate
 		if data == self.data:
-			return false
+			return False
 			
 		# if data is less than the current node go left
 		elif data < self.data:
