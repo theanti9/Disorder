@@ -165,21 +165,15 @@ def _concatList(l1, a, l2):
 		# append each of the elements from l1
 		for l in l1:
 			li.append(l)
-	else:
-		pass
 		
 	if a is not None:
 		# append the middle if there is one
 		li.append(a)
-	else:
-		pass
 		
 		
 	if l2 is not None:
 		# append each of the elements from l2
 		for l in l2:
 			li.append(l)
-	else:
-		pass
 		
 	return li
