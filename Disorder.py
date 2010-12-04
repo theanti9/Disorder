@@ -162,18 +162,14 @@ def _concatList(l1, a, l2):
 	# create a new list
 	li = []
 	if l1 is not None:
-		# append each of the elements from l1
-		for l in l1:
-			li.append(l)
+		li.extend(l1)
 		
 	if a is not None:
 		# append the middle if there is one
 		li.append(a)
 		
-		
 	if l2 is not None:
 		# append each of the elements from l2
-		for l in l2:
-			li.append(l)
+		li.extend(l2)
 		
 	return li
